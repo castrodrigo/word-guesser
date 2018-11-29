@@ -11,10 +11,12 @@ const GuessedWords = ({ words }) => {
     contents = (
       <div>
         <h3>Guessed Words</h3>
-        <table data-test="guessed-words">
-          <thead>
-            <td>Word</td>
-            <td>Match</td>
+        <table data-test="guessed-words" className="table table-sm">
+          <thead className="thead-light">
+            <tr>
+              <th>Word</th>
+              <th>Match</th>
+            </tr>
           </thead>
           <tbody>
             {words.map(item => {
