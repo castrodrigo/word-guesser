@@ -13,7 +13,7 @@ describe("Guess Word action dispatcher", () => {
     beforeEach(() => {
       store = storeFactory(initialState);
     });
-    test("If update state correctly for unsuccessful guess", () => {
+    test("If update state correctly for unsuccess ful guess", () => {
       const expectedState = {
         ...initialState,
         success: false,
@@ -57,7 +57,7 @@ describe("Guess Word action dispatcher", () => {
     beforeEach(() => {
       store = storeFactory(initialState);
     });
-    test("If update state correctly for unsuccessful guess", () => {
+    test("If update state correctly for unsuccess ful guess", () => {
       const expectedState = {
         ...initialState,
         success: false,
@@ -76,7 +76,7 @@ describe("Guess Word action dispatcher", () => {
       expect(newState).toEqual(expectedState);
     });
 
-    test("If update state correctly for successful guess", () => {
+    test("If update state correctly for success ful guess", () => {
       const expectedState = {
         ...initialState,
         success: true,
