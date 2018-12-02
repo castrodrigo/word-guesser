@@ -11,7 +11,7 @@ describe("Get Secret Word", () => {
   afterEach(() => {
     moxios.uninstall();
   });
-  test("Secret Word was fetched and added to state", () => {
+  test("Secret Word was fetched and added to state", async () => {
     const secret = "party";
     const store = storeFactory();
 
@@ -23,9 +23,8 @@ describe("Get Secret Word", () => {
       });
     });
 
-    return store.dispatch(getSecretWord()).then(() => {
-      const newState = store.getState();
-      expect(newState.secret).toBe(secret);
-    });
+    await store.dispatch(getSecretWord());
+    const newState = store.getState();
+    expect(newState.secret).toBe(secret);
   });
 });
