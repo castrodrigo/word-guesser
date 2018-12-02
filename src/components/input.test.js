@@ -9,18 +9,48 @@ const setupComponent = (initialState = {}) => {
   return shallow(<Input store={store} />).dive();
 };
 
-setupComponent();
-
 describe("Render", () => {
   describe("Word has not been guessed", () => {
-    test("If it renders properly", () => {});
-    test("If it renders input box", () => {});
-    test("If it renders submit button", () => {});
+    let wrapper;
+    beforeEach(() => {
+      const initialState = {
+        success: false
+      };
+      wrapper = setupComponent(initialState);
+    });
+    test("If it renders properly", () => {
+      const component = findByTestAttr(wrapper, "component-input");
+      expect(component.length).toBe(1);
+    });
+    test("If it renders input box", () => {
+      const component = findByTestAttr(wrapper, "input-box");
+      expect(component.length).toBe(1);
+    });
+    test("If it renders submit button", () => {
+      const component = findByTestAttr(wrapper, "input-button");
+      expect(component.length).toBe(1);
+    });
   });
   describe("Word has been guessed", () => {
-    test("If it renders properly", () => {});
-    test("If it not renders input box", () => {});
-    test("If it not renders submit button", () => {});
+    let wrapper;
+    beforeEach(() => {
+      const initialState = {
+        success: true
+      };
+      wrapper = setupComponent(initialState);
+    });
+    test("If it renders properly", () => {
+      const component = findByTestAttr(wrapper, "component-input");
+      expect(component.length).toBe(1);
+    });
+    test("If it not renders input box", () => {
+      const component = findByTestAttr(wrapper, "input-box");
+      expect(component.length).toBe(0);
+    });
+    test("If it not renders submit button", () => {
+      const component = findByTestAttr(wrapper, "input-button");
+      expect(component.length).toBe(0);
+    });
   });
 });
 
