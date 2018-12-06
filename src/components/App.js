@@ -7,7 +7,11 @@ import Congrats from "./Congrats";
 import GuessedWords from "./GuessedWords";
 import Input from "./Input";
 
-class App extends Component {
+export class UnconnectedApp extends Component {
+  componentDidMount() {
+    this.props.getSecretWord();
+  }
+
   render() {
     return (
       <div className="container">
@@ -30,4 +34,4 @@ const mapDispatchToProps = { getSecretWord };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(UnconnectedApp);

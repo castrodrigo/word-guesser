@@ -1,5 +1,3 @@
-import React from "react";
-
 import { getLetterMatchCount } from "./";
 
 describe("Helpers", () => {
