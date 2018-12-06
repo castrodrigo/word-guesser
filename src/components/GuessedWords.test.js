@@ -5,7 +5,7 @@ import { findByTestAttr, checkProps } from "../../test/testUtils";
 import GuessedWords from "./GuessedWords";
 
 const defaultProps = {
-  words: [
+  guessedWords: [
     {
       word: "train",
       match: 3
@@ -25,7 +25,7 @@ test("Does not throw a warning with expected props", () => {
 describe("If are not words Guessed", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = setupComponent({ words: [] });
+    wrapper = setupComponent({ guessedWords: [] });
   });
 
   test("Renders with no error", () => {
@@ -41,7 +41,7 @@ describe("If are not words Guessed", () => {
   });
 });
 describe("If are words Guessed", () => {
-  const words = [
+  const guessedWords = [
     {
       word: "train",
       match: 3
@@ -57,7 +57,7 @@ describe("If are words Guessed", () => {
   ];
   let wrapper;
   beforeEach(() => {
-    wrapper = setupComponent({ words });
+    wrapper = setupComponent({ guessedWords });
   });
 
   test("Renders with no error", () => {
@@ -75,6 +75,6 @@ describe("If are words Guessed", () => {
   test("If shows the correct number of guessed words", () => {
     const component = findByTestAttr(wrapper, "guessed-word");
 
-    expect(component.length).toBe(words.length);
+    expect(component.length).toBe(guessedWords.length);
   });
 });
