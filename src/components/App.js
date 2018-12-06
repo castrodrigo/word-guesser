@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getSecretWord } from "../actions";
-
-import "./App.css";
 import Congrats from "./Congrats";
 import GuessedWords from "./GuessedWords";
 import Input from "./Input";
+
+import "./App.css";
 
 export class UnconnectedApp extends Component {
   componentDidMount() {
