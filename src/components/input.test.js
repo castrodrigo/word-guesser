@@ -100,4 +100,8 @@ describe("Unconnected Input", () => {
     const guessedWordArg = guessWordMock.mock.calls[0][0];
     expect(guessedWordArg).toBe(guessedWord);
   });
+
+  test("If input box is cleaned after submit", () => {
+    expect(wrapper.instance().inputBox.current.value).toBe("");
+  });
 });
