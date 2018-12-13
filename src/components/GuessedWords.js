@@ -14,14 +14,16 @@ const GuessedWords = ({ guessedWords }) => {
         <table data-test="guessed-words" className="table table-sm">
           <thead className="thead-light">
             <tr>
+              <th>Try</th>
               <th>Word</th>
               <th>Match</th>
             </tr>
           </thead>
           <tbody>
-            {guessedWords.map(item => {
+            {guessedWords.map((item, index) => {
               return (
                 <tr key={item.word} data-test="guessed-word">
+                  <td>{index + 1}</td>
                   <td>{item.word}</td>
                   <td>{item.match}</td>
                 </tr>
@@ -29,6 +31,7 @@ const GuessedWords = ({ guessedWords }) => {
             })}
           </tbody>
         </table>
+        <p>The total of guesses is {guessedWords.length}</p>
       </div>
     );
   }
